@@ -4,9 +4,11 @@
   "description": "cheap erc20 deployment",
   "main": "index.js",
   "scripts": {
-    "build": "oz compile --optimizer on --optimizer-runs 999",
+    "compile": "oz compile --optimizer on --optimizer-runs 999",
+    "coverage": "scripts/coverage.js",
+    "lint": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
     "test": "mocha --exit --recursive --timeout 10000",
-		"clean": "rimraf build"
+    "clean": "rimraf build"
   },
   "author": "Hadrien Croubois (@Amxx)",
   "license": "MIT",
@@ -20,6 +22,8 @@
     "chai": "^4.2.0",
     "ganache-cli": "^6.12.1",
     "mocha": "^8.2.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "solhint": "^3.3.2",
+    "solidity-coverage": "^0.7.13"
   }
 }

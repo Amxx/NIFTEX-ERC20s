@@ -2,7 +2,7 @@
 
 pragma solidity ^0.6.0;
 
-import './ERC1167.sol';
+import "./ERC1167.sol";
 
 contract Factory
 {
@@ -20,6 +20,7 @@ contract Factory
     {
         instance = ERC1167.clone(master);
         emit NewInstance(instance, master);
+        // solhint-disable-next-line avoid-low-level-calls
         (bool success,) = instance.call(initdata);
         // silent warning about unused variable
         success;
