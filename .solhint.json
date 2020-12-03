@@ -1,6 +1,8 @@
 {
   "extends": "solhint:recommended",
   "rules": {
+    "bracket-align": "off",
+    "indent": "off",
     "func-order": "off",
     "mark-callable-contracts": "off",
     "no-empty-blocks": "off",
