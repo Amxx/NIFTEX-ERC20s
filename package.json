@@ -1,0 +1,23 @@
+{
+  "name": "erc20s",
+  "version": "1.0.0",
+  "description": "cheap erc20 deployment",
+  "main": "index.js",
+  "scripts": {
+    "build": "oz compile --optimizer on --optimizer-runs 999",
+    "test": "mocha --exit --recursive --timeout 10000"
+  },
+  "author": "Hadrien Croubois (@Amxx)",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.3.0"
+  },
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/test-environment": "^0.1.8",
+    "@openzeppelin/test-helpers": "^0.5.9",
+    "chai": "^4.2.0",
+    "ganache-cli": "^6.12.1",
+    "mocha": "^8.2.1"
+  }
+}
