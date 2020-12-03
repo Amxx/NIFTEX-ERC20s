@@ -14,8 +14,8 @@ describe('ERC20Factory', function () {
 
 	const name   = 'InitializableERC20';
 	const symbol = 'INIT';
-	const cap    = web3.utils.toWei('21000000');
-	const amount = web3.utils.toWei('1');
+	const cap    = new BN(web3.utils.toWei('21000000'));
+	const amount = new BN(web3.utils.toWei('1'));
 
 	before(async function () {
 		this.factory = await Factory.new({ from: admin });
