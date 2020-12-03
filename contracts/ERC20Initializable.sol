@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.0;
+pragma solidity ^0.7.0;
 
 import "./initializable/Ownable.sol";
 import "./initializable/ERC20.sol";
@@ -18,7 +18,6 @@ contract ERC20Initializable is
     bool internal _initialized;
 
     constructor()
-    public
     {
         _initialized = true;
     }
