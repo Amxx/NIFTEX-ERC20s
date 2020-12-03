@@ -73,7 +73,7 @@ or, directly by including the ERC1167 library
 		uint256 cap    = <cap>;
 
 		address instance = ERC1167.clone(<address of the master>);
-		(bool success,) = ERC20Initializable(instance).initialize(admin, name, symbol, cap);
+		ERC20Initializable(instance).initialize(admin, name, symbol, cap);
 		/* ... */
 	}
 ```
