@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "oz compile --optimizer on --optimizer-runs 999",
-    "test": "mocha --exit --recursive --timeout 10000"
+    "test": "mocha --exit --recursive --timeout 10000",
+		"clean": "rimraf build"
   },
   "author": "Hadrien Croubois (@Amxx)",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "@openzeppelin/test-helpers": "^0.5.9",
     "chai": "^4.2.0",
     "ganache-cli": "^6.12.1",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "rimraf": "^3.0.2"
   }
 }
