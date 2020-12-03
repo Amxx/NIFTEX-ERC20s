@@ -15,14 +15,23 @@ This life cycle of the solution is expected as follows:
 - A Master version of the `ERC20Initializable` contract is deployed once.
 	- cost: 1388404 gas (once)
 - For each new ERC20: call the `Factory` this the address of the master and the content of the initialization function.
-	- cost: ~196370 gas (might slightly change depending on the parameters)
+	- cost: ~200000 gas (might slightly change depending on the parameters, see remarks)
 
 This workflow can be seen at work in the `test/index.js` file.
 
 Remarks
 ---
 
-In order to keep the deployment cost of each ERC20 down, the proposed `ERC20Initializable` repends on a small initialization. Adding additional features, such as separating the minter and pauser roles, would increasse the initialization (and thus deployment cost).
+Tests show that it cost 196430 gas units to deploy a token with the following settings:
+
+- name: `InitializableERC20`
+- symbol: `INIT`
+- cap: `21000000 * 10**18`
+
+Changing the token settings will have an impact of the exact deployment price. For example, a minimal (and useless) token with empty name, empty symbol, and a cap of `0` would only cost 137507 gas to deploy
+
+
+In order to keep the deployment cost of each ERC20 down, the proposed `ERC20Initializable` depends on a small initialization. Adding additional features, such as separating the minter and pauser roles, would increasse the initialization (and thus deployment cost).
 
 Thanks to the generic nature of the `Factory`, it is easy to deploy a new version of the master contract, and use the same factory to deploy a new family of contracts (ERC20 or different) using this updated logic. This could be usefull to expand the capability (adding ERC20Snapshot for example).
 
