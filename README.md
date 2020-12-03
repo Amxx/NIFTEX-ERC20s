@@ -11,11 +11,11 @@ This proposal uses minimal proxies to reduce the deployment cost of a family of 
 
 This life cycle of the solution is expected as follows:
 - The `Factory` is deployed once and for all on the network.
-	- cost: 186955 gas (once)
+	- cost: 202735 gas (once)
 - A Master version of the `ERC20Initializable` contract is deployed once.
 	- cost: 1388404 gas (once)
 - For each new ERC20: call the `Factory` this the address of the master and the content of the initialization function.
-	- cost: ~196364 gas (might slightly change depending on the parameters)
+	- cost: ~196370 gas (might slightly change depending on the parameters)
 
 This workflow can be seen at work in the `test/index.js` file.
 

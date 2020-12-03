@@ -9,14 +9,14 @@ contract Factory
     event NewInstance(address instance, address master);
 
     function newInstance(address master)
-    public returns (address instance)
+    external returns (address instance)
     {
         instance = ERC1167.clone(master);
         emit NewInstance(instance, master);
     }
 
     function newInstanceAndCall(address master, bytes calldata initdata)
-    public returns (address instance)
+    external returns (address instance)
     {
         instance = ERC1167.clone(master);
         emit NewInstance(instance, master);

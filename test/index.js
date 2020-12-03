@@ -20,8 +20,6 @@ describe('ERC20Factory', function () {
 	before(async function () {
 		this.factory = await Factory.new({ from: admin });
 		this.master  = await ERC20Initializable.new({ from: admin });
-		console.log('factory deployment cost:', (await web3.eth.getTransactionReceipt(this.factory.transactionHash)).gasUsed)
-		console.log('master deployment cost:', (await web3.eth.getTransactionReceipt(this.master.transactionHash)).gasUsed)
 	});
 
 	it('master is locked', async function () {
@@ -41,6 +39,13 @@ describe('ERC20Factory', function () {
 			const initdata = this.master.contract.methods.initialize(admin, name, symbol, cap).encodeABI();
 			const tx = await this.factory.newInstanceAndCall(this.master.address, initdata);
 			this.token = await ERC20Initializable.at(tx.receipt.logs.find(({ event }) => event == 'NewInstance').args.instance);
+			this.token.transactionHash = tx.receipt.transactionHash;
+		});
+
+		it('gas costs', async function () {
+			console.log('factory deployment cost:', (await web3.eth.getTransactionReceipt(this.factory.transactionHash)).gasUsed);
+			console.log('master  deployment cost:', (await web3.eth.getTransactionReceipt(this.master.transactionHash)).gasUsed);
+			console.log('token   deployment cost:', (await web3.eth.getTransactionReceipt(this.token.transactionHash)).gasUsed);
 		});
 
 		it('checks', async function () {
