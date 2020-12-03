@@ -4,10 +4,10 @@
   "description": "cheap erc20 deployment",
   "main": "index.js",
   "scripts": {
-    "compile": "oz compile --optimizer on --optimizer-runs 999",
-    "coverage": "scripts/coverage.js",
+    "compile": "buidler compile",
+    "coverage": "buidler coverage",
+    "test": "buidler test",
     "lint": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
-    "test": "mocha --exit --recursive --timeout 10000",
     "clean": "rimraf build"
   },
   "author": "Hadrien Croubois (@Amxx)",
@@ -16,11 +16,12 @@
     "@openzeppelin/contracts": "^3.3.0"
   },
   "devDependencies": {
-    "@openzeppelin/cli": "^2.8.2",
+    "@nomiclabs/buidler": "^1.4.8",
+    "@nomiclabs/buidler-truffle5": "^1.3.4",
+    "@nomiclabs/buidler-web3": "^1.3.4",
     "@openzeppelin/test-environment": "^0.1.8",
     "@openzeppelin/test-helpers": "^0.5.9",
     "chai": "^4.2.0",
-    "ganache-cli": "^6.12.1",
     "mocha": "^8.2.1",
     "rimraf": "^3.0.2",
     "solhint": "^3.3.2",

@@ -1,4 +1,3 @@
-const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
 const { BN, constants, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 
@@ -6,10 +5,10 @@ const { shouldBehaveLikeERC20         } = require('./behaviors/ERC20.behavior');
 const { shouldBehaveLikeERC20Burnable } = require('./behaviors/ERC20Burnable.behavior');
 const { shouldBehaveLikeERC20Capped   } = require('./behaviors/ERC20Capped.behavior');
 
-const Factory            = contract.fromArtifact('Factory');
-const ERC20Initializable = contract.fromArtifact('ERC20Initializable');
+const Factory            = artifacts.require('Factory');
+const ERC20Initializable = artifacts.require('ERC20Initializable');
 
-describe('ERC20Factory', function () {
+contract('ERC20Factory', function (accounts) {
 	const [ admin, recipient, other ] = accounts;
 
 	const name   = 'InitializableERC20';
