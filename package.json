@@ -13,7 +13,11 @@
   "author": "Hadrien Croubois (@Amxx)",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "@openzeppelin/contracts": "^3.3.0-solc-0.7"
+=======
+    "@openzeppelin/contracts": "^3.3.0"
+>>>>>>> master
   },
   "devDependencies": {
     "@nomiclabs/hardhat-solhint": "^2.0.0",
