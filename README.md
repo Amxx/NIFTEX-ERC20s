@@ -40,7 +40,7 @@ Testing
 
 The proposed implementation of the master contract, and the corresponding ERC20 instances, have been tested against OpenZeppelin's ERC20 behavior tests (ERC20, ERC20Capped, ERC20Burnable). Run `yarn test` to checkout the tests.
 
-Coverage is comming soon.
+For test coverage analysis, run `yarn coverage`.
 
 Integration with other smart contracts
 ---
@@ -77,3 +77,8 @@ or, directly by including the ERC1167 library
 		/* ... */
 	}
 ```
+
+Versions & Frameworks
+---
+
+This code is available in solidity `^0.6.0`, with different framework (oz, buidler, hardhat) on the corresponding branches. In addition, it is also available in solidity `^0.7.0` in the `solc-0.7` branch.
